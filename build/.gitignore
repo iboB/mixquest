@@ -1,0 +1,5 @@
+vs14x64/
+emcc_debug/
+emcc_release/
+makefile_debug/
+makefile_release/

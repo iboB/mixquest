@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32" tilecount="512" columns="16">
+  <image source="ground_tiles.png" width="512" height="1024"/>
+  <tile id="6">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="70">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="83">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="86">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="88">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="89">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="97">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="98">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="99">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="102">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="103">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="104">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="105">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="106">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="113">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="114">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="115">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="134">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="135">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="136">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="137">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="145">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="146">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="150">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="151">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="152">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="153">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="154">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="161">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="162">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="164">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="166">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="167">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="168">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="169">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="170">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="198">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="199">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="200">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="202">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="209">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="210">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="212">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="213">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="214">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="215">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="216">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="217">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="218">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="225">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="226">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="228">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="229">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="230">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="231">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="232">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="233">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="234">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="258">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="259">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="261">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="262">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="264">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="269">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="270">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="271">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="273">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="274">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="275">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="277">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="278">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="280">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="285">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="286">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="287">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="289">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="290">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="291">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="296">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="301">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="302">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="303">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="305">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="306">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="307">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="309">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="310">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="312">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="321">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="322">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="323">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="325">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="326">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="329">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="333">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="513" name="trees" tilewidth="32" tileheight="32" tilecount="256" columns="32">
+  <image source="treesv6_0.png" width="1024" height="256"/>
+  <tile id="4">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="79">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="83">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="109">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="110">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="111">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="114">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="115">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="116">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="128">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="131">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="132">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="135">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="136">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="139">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="140">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="143">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="146">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="147">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="148">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="160">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="163">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="164">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="167">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="168">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="172">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="175">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="179">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="769" name="cliffs" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="Cliff_tileset.png" width="512" height="512"/>
+  <tile id="18">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="91">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="103">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="104">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="107">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1025" name="objects" tilewidth="32" tileheight="32" tilecount="128" columns="16">
+  <image source="object-layer.png" width="512" height="256"/>
+  <tile id="27">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="walk" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1153" name="water" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="graphics-tiles-waterflow.png" width="256" height="256"/>
+ </tileset>
+ <layer name="bottom" width="32" height="32">
+  <data encoding="csv">
+50,1153,1154,1155,87,83,98,99,100,83,83,83,265,266,267,268,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,
+50,1161,1162,1163,87,83,114,115,116,83,83,83,281,282,283,284,100,100,83,98,259,260,100,83,83,83,83,98,99,262,263,83,
+50,1153,1154,1155,87,83,83,83,83,83,83,83,297,298,299,300,100,116,83,274,275,276,116,100,100,83,83,114,115,278,279,83,
+50,1161,1162,1163,74,104,104,104,104,91,83,83,313,314,315,316,116,83,83,290,291,292,116,116,116,100,100,83,83,83,83,83,
+35,1169,1170,1171,35,50,50,50,50,87,83,83,83,330,331,332,83,83,83,306,307,308,114,115,116,116,116,100,83,83,83,83,
+1153,1154,1155,1172,35,35,35,50,50,74,91,83,83,83,83,83,83,83,83,322,323,324,83,83,114,115,116,116,83,83,83,83,
+1153,1154,1155,50,50,50,50,50,50,50,74,104,91,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,83,310,311,83,
+1153,1154,1155,50,50,50,50,50,50,50,50,50,74,104,104,104,104,104,104,104,91,83,83,83,83,83,83,83,83,326,327,83,
+1153,1153,1154,1155,50,50,50,50,50,50,50,50,50,51,51,51,51,51,35,50,74,104,91,83,83,83,83,83,83,83,83,83,
+1153,1161,1162,1153,1153,1154,1155,50,35,51,51,51,51,51,50,50,50,51,58,72,72,59,74,104,91,83,83,83,83,83,83,83,
+1161,1169,1170,1161,1161,1153,1153,1154,1155,35,35,35,50,50,71,72,72,59,87,82,82,106,72,59,74,104,104,104,91,83,83,83,
+1169,1170,1169,1169,1169,1161,1153,1154,1155,1155,50,35,35,71,107,262,263,89,87,98,310,311,83,106,73,35,35,35,87,83,83,83,
+50,50,50,51,50,1169,1161,1162,1163,1163,50,50,51,87,82,278,279,89,103,91,326,327,83,99,89,35,50,35,74,91,83,83,
+50,50,50,50,50,50,1169,1153,1154,1155,1155,50,50,87,98,99,90,75,50,74,91,98,99,90,105,35,50,50,35,74,91,83,
+50,50,50,50,51,50,50,1153,1153,1154,1155,51,51,103,104,104,75,35,50,50,74,104,104,105,50,35,35,35,35,35,74,104,
+136,136,136,136,136,136,136,1161,1153,1154,1155,1155,51,136,136,136,136,136,137,35,35,35,51,35,35,35,35,51,50,50,50,50,
+152,152,152,152,152,152,152,1169,1153,1154,1153,1154,1155,152,152,152,152,152,153,136,137,138,50,50,51,35,35,71,72,72,73,50,
+168,168,168,168,168,168,168,50,1161,1162,1161,1162,1163,168,168,168,168,168,169,168,169,51,51,50,35,71,72,107,83,83,106,72,
+50,51,35,35,50,50,50,50,1169,1153,1154,1153,1154,1155,50,50,51,51,50,51,50,50,50,50,71,107,83,270,271,272,83,83,
+50,50,50,50,50,50,50,50,50,1161,1162,1153,1154,1155,1155,51,51,51,51,51,51,35,50,50,87,83,83,286,287,288,100,83,
+50,51,51,35,50,50,50,50,35,1169,1170,1161,1153,1154,1155,51,35,51,51,35,51,51,50,35,87,83,83,302,303,304,116,83,
+50,51,50,35,50,50,50,50,50,35,35,1169,1153,1154,1155,35,50,35,51,51,51,51,50,35,103,104,91,83,83,83,334,83,
+50,51,50,50,50,35,50,50,35,50,50,1153,1153,1154,1155,50,50,50,50,50,50,50,50,35,35,50,74,104,104,91,83,90,
+50,50,50,35,35,35,35,35,35,35,35,1161,1153,1154,1155,50,50,50,50,50,50,50,50,50,35,35,35,35,50,74,104,105,
+50,50,50,35,51,51,51,51,51,35,50,1169,1153,1154,1155,35,50,50,50,50,50,50,50,50,35,35,50,35,50,35,35,50,
+50,50,50,35,50,50,50,51,51,51,51,51,1153,1154,1155,35,50,50,50,50,50,50,50,35,35,35,35,35,35,35,50,50,
+50,50,50,50,35,51,51,51,51,50,50,35,1153,1154,1155,35,35,50,50,50,50,35,50,35,35,35,35,35,35,50,50,50,
+50,50,50,50,50,51,50,50,50,50,50,35,1153,1154,1155,35,35,35,50,50,35,35,50,35,35,35,35,35,35,35,50,50,
+50,50,50,50,50,50,50,35,35,35,35,35,1153,1154,1155,35,35,35,35,35,35,35,50,50,50,35,35,35,35,35,50,50,
+50,50,50,50,50,51,50,50,50,50,50,50,1153,1154,1155,50,50,50,50,50,50,50,50,35,35,35,35,50,50,50,50,50,
+50,50,50,50,50,50,50,50,50,50,50,50,1153,1154,1155,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,
+50,50,50,50,50,50,50,50,50,50,50,50,1161,1162,1163,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50
+</data>
+ </layer>
+ <layer name="mid" width="32" height="32">
+  <data encoding="csv">
+0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,561,562,563,0,0,0,
+0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,593,594,595,596,0,0,
+0,23,0,25,0,518,519,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,625,626,627,628,629,0,
+0,23,0,25,549,550,551,552,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,657,658,659,660,0,0,
+0,23,0,25,581,582,583,584,0,0,0,0,522,523,524,0,0,654,655,656,0,0,0,0,0,0,689,690,691,0,0,0,
+8,27,10,41,613,614,615,616,0,0,0,553,554,555,556,557,0,686,687,688,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,25,0,645,646,647,648,0,0,0,585,586,587,588,589,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,25,0,677,678,679,680,0,0,0,617,618,619,620,621,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+10,11,26,9,0,0,0,0,0,0,0,649,650,651,652,653,0,0,0,0,0,0,0,0,0,522,523,524,0,0,0,0,
+26,27,0,26,8,8,9,0,0,0,0,0,682,683,684,0,0,0,0,0,0,0,0,0,553,554,555,556,557,0,0,0,
+0,0,0,0,0,0,26,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,585,586,587,588,589,0,0,0,
+40,40,40,40,40,11,0,0,26,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,617,618,619,620,621,0,0,0,
+0,0,0,0,0,39,11,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,649,650,651,652,653,0,0,0,
+0,0,0,0,0,0,39,11,0,26,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,682,683,684,0,0,0,0,
+0,0,0,0,0,0,0,23,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,23,0,0,26,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,165,165,165,165,165,165,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,11,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,39,11,0,0,26,9,0,0,0,0,953,954,955,0,0,0,0,0,0,0,0,0,0,0,
+545,546,547,548,0,0,0,0,0,23,0,0,0,26,9,771,772,968,969,970,971,972,0,0,0,0,0,0,0,0,0,0,
+577,578,579,580,0,0,0,0,0,39,40,11,0,0,786,787,788,0,840,841,0,988,989,0,0,0,0,0,0,0,0,0,
+609,610,611,612,0,0,0,0,0,0,0,23,0,0,802,0,0,0,856,857,0,0,807,0,0,0,0,0,0,0,0,0,
+641,642,643,644,0,0,0,0,0,0,0,23,0,0,818,0,0,0,872,873,0,0,823,0,0,0,0,0,0,0,0,0,
+673,674,675,676,518,519,0,0,0,0,0,23,0,0,818,0,0,0,0,0,0,0,823,0,0,0,0,0,0,0,0,0,
+0,0,0,549,550,551,552,0,0,0,0,39,11,0,834,0,0,0,0,0,0,0,823,0,0,0,0,0,0,0,0,0,
+0,0,0,581,582,583,584,0,0,0,0,0,23,0,850,851,843,844,845,836,837,838,839,0,0,0,0,0,518,519,0,0,
+0,0,0,613,614,615,616,0,0,0,0,0,23,0,866,867,859,860,861,852,853,854,855,0,0,0,0,549,550,551,552,0,
+0,0,0,645,646,647,648,0,0,0,0,0,23,0,25,0,875,876,877,868,869,870,0,0,0,0,0,581,582,583,584,0,
+0,0,0,677,678,679,680,0,0,0,0,0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,613,614,615,616,0,
+0,0,0,0,0,0,0,0,0,0,0,0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,645,646,647,648,0,
+0,0,0,0,0,0,0,0,0,0,0,0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,677,678,679,680,0,
+0,0,0,0,0,0,0,0,0,0,0,0,23,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Top" width="32" height="32">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1052,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,545,546,547,548,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,577,578,579,580,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1068,0,
+0,0,0,1069,0,0,609,610,611,612,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,641,642,643,644,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,673,674,675,676,0,0,0,0,0,0,1053,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,1052,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1062,1063,0,0,0,
+0,1052,0,0,0,0,0,0,0,0,0,1052,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1078,1079,0,0,0,
+0,0,0,1053,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,148,149,149,149,149,149,149,150,0,0,0,0,0,0,0,0,0,0,0,1053,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,517,518,519,0,0,0,0,0,0,0,0,0,0,
+0,0,0,1053,0,0,180,181,181,181,181,181,181,182,0,0,0,0,0,549,550,551,552,0,0,0,0,0,0,0,0,0,
+0,0,0,517,518,519,0,0,0,0,0,0,0,0,0,0,0,0,0,581,582,583,584,0,0,0,0,0,0,0,0,0,
+0,0,0,549,550,551,552,0,0,0,0,0,0,0,0,0,0,0,0,613,614,615,616,0,0,1068,0,0,0,0,0,0,
+0,0,0,581,582,583,584,0,1076,1077,0,0,0,0,0,0,1069,0,0,645,646,647,648,0,0,0,0,0,0,0,0,0,
+0,0,0,613,614,615,616,0,1092,1093,1094,0,0,0,0,1052,0,0,0,677,678,679,680,1062,1063,0,0,0,0,0,0,0,
+0,0,0,645,646,647,648,0,1108,1109,1110,0,0,0,0,0,0,0,0,0,0,0,0,1078,1079,0,0,0,0,0,0,0,
+0,0,0,677,678,679,680,0,0,0,0,0,0,0,0,0,0,1053,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1052,0,0,0,0,0,1053,0,0,0,0,0,
+0,0,0,0,0,545,546,547,548,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1053,
+0,0,0,0,0,577,578,579,580,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1052,0,0,0,0,0,0,0,
+0,0,0,0,0,609,610,611,612,0,1052,0,0,0,0,0,0,0,0,0,0,0,0,0,1069,0,0,0,545,546,547,548,
+0,0,0,0,0,641,642,643,644,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,577,578,579,580,
+0,0,0,0,0,673,674,675,676,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,609,610,611,612,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1050,0,641,642,643,644,
+1069,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,673,674,675,676
+</data>
+ </layer>
+</map>
