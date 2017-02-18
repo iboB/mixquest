@@ -14,6 +14,8 @@
 
 #include <maibo/Common/GLSentries.h>
 
+#include <imgui.h>
+
 using namespace yama;
 using namespace dynamix;
 using namespace maibo;
@@ -118,6 +120,54 @@ void InGameState::update(uint32_t dt)
         n *= float(dt) / 100;
         m_camPos.xy() += n;
     }
+
+    static bool showImGuiHud = true;
+    ImGui::SetNextWindowPos(ImVec2());
+    ImGui::Begin("Hud", &showImGuiHud, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize);
+    
+    static bool showPluginsDialog = false;
+    if (ImGui::Button("Plugins..."))
+    {
+        showPluginsDialog = true;
+    }
+
+    if (showPluginsDialog)
+    {
+        ImGui::Begin("Plugins", &showPluginsDialog);
+
+        static const char* files[] = { "AI", "Test1", "Test2" };
+        static int curItem = 0;
+        ImGui::ListBox("Files", &curItem, files, sizeof(files)/sizeof(char*), 10);
+
+        ImGui::Columns(3);
+
+        if (ImGui::Button("Load"))
+        {
+            std::cout << "Loading " << files[curItem] << "\n";
+            showPluginsDialog = false;
+        }
+
+        ImGui::NextColumn();
+
+        if (ImGui::Button("Unload"))
+        {
+            std::cout << "Unloading " << files[curItem] << "\n";
+            showPluginsDialog = false;
+        }
+
+        ImGui::NextColumn();
+
+        if (ImGui::Button("Cancel"))
+        {
+            showPluginsDialog = false;
+        }
+
+        ImGui::Columns(1);
+
+        ImGui::End();
+    }
+    
+    ImGui::End();
 }
 
 void InGameState::render()

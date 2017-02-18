@@ -10,6 +10,7 @@
 
 #include <maibo/Resources/ResourceManager.h>
 #include <maibo/Rendering/TextureManager.h>
+#include <maibo/GUI/ImGui/ImGuiManager.h>
 
 #include "LoadAllAssetsState.h"
 #include "assets/GlobalAssets.h"
@@ -31,6 +32,7 @@ bool MixQuestApp::initialize()
 
     TextureManager::createInstance();
     GlobalAssets::createInstance();
+    ImGuiManager::createInstance();
 
     // You can configure opengl here
     glEnable(GL_DEPTH_TEST);
@@ -45,6 +47,7 @@ bool MixQuestApp::initialize()
 
 void MixQuestApp::deinitialize()
 {
+    ImGuiManager::destroyInstance();
     TextureManager::destroyInstance();
     GlobalAssets::destroyInstance();
     Application::deinitialize();
