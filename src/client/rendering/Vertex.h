@@ -6,4 +6,10 @@
 // See accompanying file LICENSE.txt or copy at
 // http://opensource.org/licenses/MIT
 //
-#include "MapDescription.h"
+#pragma once
+
+struct Vertex
+{
+    yama::point3 pos;
+    yama::point2 texCoord;
+};

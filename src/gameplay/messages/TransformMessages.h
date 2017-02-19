@@ -13,7 +13,7 @@ DYNAMIX_EXPORTED_CONST_MESSAGE_0(GAMEPLAY_API, const yama::ivector2&, position);
 
 enum class Direction
 {
-    East, North, West, South
+    South, East, North, West
 };
 
 DYNAMIX_EXPORTED_MESSAGE_1(GAMEPLAY_API, void, setDirection, Direction, dir);

@@ -8,6 +8,8 @@
 //
 #pragma once
 
+#include "Map.h"
+
 class GameplaySystem;
 struct MapDescription;
 
@@ -27,9 +29,14 @@ public:
     void addSystem(GameplaySystem* system);
     void removeSystem(GameplaySystem* system);
 
+    dynamix::object& spawnCharacter(int team, const std::string& name);
 
 private:
+    void addObject(dynamix::object& obj);
+
+    Map m_map;
+
     std::vector<GameplaySystem*> m_systems;
 
-    std::vector<dynamix::object> m_objects;
+    std::vector<dynamix::object*> m_objects;
 };

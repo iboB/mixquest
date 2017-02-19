@@ -137,15 +137,17 @@ MapDescription MapRendering::loadFromTmx(const Tmx::Map& tmx)
                 auto tmxTile = tmxTileset->GetTile(tile.id);
 
                 vector4 color;
+                // invert here too, to match coordinates
+                const int tilesIndex = (map.size.y - y - 1) * map.size.x + x;
                 if (tmxTile && tmxTile->GetProperties().GetBoolProperty("walk"))
                 {
                     color = v(0, 1, 0, 1);
-                    map.tiles[y * map.size.x + x] = false;
+                    map.tiles[tilesIndex] = false;
                 }
                 else
                 {
                     color = v(1, 0, 0, 1);
-                    map.tiles[y * map.size.x + x] = true;
+                    map.tiles[tilesIndex] = true;
                 }
 
                 quad.v00.color = color;

@@ -6,4 +6,6 @@
 // See accompanying file LICENSE.txt or copy at
 // http://opensource.org/licenses/MIT
 //
-#include "MapDescription.h"
+#pragma once
+
+DYNAMIX_DECLARE_EXPORTED_MIXIN(GAMEPLAY_API, Character);

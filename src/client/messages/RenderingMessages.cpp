@@ -6,4 +6,6 @@
 // See accompanying file LICENSE.txt or copy at
 // http://opensource.org/licenses/MIT
 //
-#include "MapDescription.h"
+#include "RenderingMessages.h"
+
+DYNAMIX_DEFINE_MESSAGE(supplyRenderingParts);

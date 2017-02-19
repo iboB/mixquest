@@ -14,6 +14,7 @@
 
 class Game;
 class MapRendering;
+class Renderer;
 
 class InGameState : public maibo::AppState
 {
@@ -35,4 +36,6 @@ private:
     MapRendering* m_mapRendering = nullptr;
     yama::point3 m_camPos;
     yama::point2 m_camMoveWeight;
+
+    std::unique_ptr<Renderer> m_renderer;
 };

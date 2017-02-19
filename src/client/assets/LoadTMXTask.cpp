@@ -8,6 +8,8 @@
 //
 #include "LoadTMXTask.h"
 
+#include "RetainTextureTask.h"
+
 #include "gameplay/game/MapDescription.h"
 
 #include <Tmx.h>
@@ -24,51 +26,6 @@ LoadTMXTask::LoadTMXTask(ConstResourceFuturePtr<std::vector<char>> readTMX, Wait
     , m_readTMXFuture(readTMX)
     , m_waitState(state)
 {
-}
-
-namespace
-{
-class RetainTextureTask : public maibo::Task
-{
-public:
-    RetainTextureTask(const std::string& name, ConstResourceFuturePtr<TexturePtr> depFuture)
-        : m_name(name)
-        , m_depFuture(depFuture)
-        , m_future(new Future)
-    {
-    }
-
-    virtual bool execute() override
-    {
-        if (m_depFuture)
-        {
-            if (!m_depFuture->isDone())
-            {
-                // wait for dependent future
-                return false;
-            }
-
-            if (m_depFuture->errorCode())
-            {
-                return true;
-            }
-        }
-
-
-        auto& tm = TextureManager::instance();
-        tm.addTexture(m_depFuture->resource(), m_name, true);
-
-        m_future->setDone();
-        m_future->setErrorCode(0);
-        m_future->setProgress(1.f);
-
-        return true;
-    }
-
-    std::string m_name;
-    ConstResourceFuturePtr<TexturePtr> m_depFuture;
-    FuturePtr m_future; // used for the wait state
-};
 }
 
 bool LoadTMXTask::execute()

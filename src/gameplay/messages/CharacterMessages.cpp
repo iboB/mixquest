@@ -6,4 +6,8 @@
 // See accompanying file LICENSE.txt or copy at
 // http://opensource.org/licenses/MIT
 //
-#include "MapDescription.h"
+#include "CharacterMessages.h"
+
+DYNAMIX_DEFINE_MESSAGE(team);
+DYNAMIX_DEFINE_MESSAGE(name);
+DYNAMIX_DEFINE_MESSAGE(hp);

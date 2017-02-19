@@ -6,4 +6,8 @@
 // See accompanying file LICENSE.txt or copy at
 // http://opensource.org/licenses/MIT
 //
-#include "MapDescription.h"
+#pragma once
+
+class Renderer;
+
+DYNAMIX_MULTICAST_MESSAGE_1(void, supplyRenderingParts, Renderer&, renderer);

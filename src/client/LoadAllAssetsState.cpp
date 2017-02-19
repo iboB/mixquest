@@ -10,8 +10,11 @@
 
 #include "assets/LoadTMXTask.h"
 #include "assets/GlobalAssets.h"
+#include "assets/RetainTextureTask.h"
 
 #include "InGameState.h"
+
+#include "CharacterNames.h"
 
 #include <maibo/Application.h>
 #include <maibo/TaskManager.h>
@@ -29,7 +32,8 @@ bool LoadAllAssetsState::initialize()
     addFuture(mapFileFuture);
 
     auto task = new LoadTMXTask(mapFileFuture, *this);
-    maibo::TaskManager::instance().pushTask(task);
+    auto& tm = maibo::TaskManager::instance();
+    tm.pushTask(task);
     addFuture(task->future);
 
     m_tmxFuture = task->future;
@@ -40,6 +44,22 @@ bool LoadAllAssetsState::initialize()
 
     m_texturizeColorFuture = rm.loadGPUProgramAsync("assets/tex_color.vert", "assets/tex_color.frag", true);
     addFuture(m_texturizeColorFuture);
+
+    char animsNum[2] = "0";
+    for (int i = 0; i < 2; ++i)
+    {
+        ++animsNum[0];
+
+        for (auto& name : Character_Names[i])
+        {
+            auto textureName = std::string("anims") + animsNum + "/" + name + ".png";
+            auto future = rm.loadTexture("assets/" + textureName);
+            addFuture(future);
+            auto task = new RetainTextureTask(textureName, future);
+            tm.pushTask(task);
+            addFuture(task->m_future);
+        }
+    }
 
     glClearColor(1, 0.1f, 0.4f, 1);
 

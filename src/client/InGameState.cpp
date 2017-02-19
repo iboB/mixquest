@@ -12,6 +12,11 @@
 #include "assets/GlobalAssets.h"
 #include "map/MapRendering.h"
 
+#include "systems/RenderingSystem.h"
+#include "rendering/Renderer.h"
+
+#include "CharacterNames.h"
+
 #include <maibo/Common/GLSentries.h>
 
 #include <imgui.h>
@@ -35,6 +40,19 @@ bool InGameState::initialize()
     auto mapDesc = m_mapRendering->loadFromTmx(*ga.tmx);
 
     m_game = new Game(mapDesc);
+
+    m_renderer.reset(new Renderer);
+    m_game->addSystem(new RenderingSystem(*m_renderer));
+
+    int teamId = 0;
+    for (auto& team : Character_Names)
+    {
+        for (auto& name : team)
+        {
+            m_game->spawnCharacter(teamId, name);
+        }
+        ++teamId;
+    }
 
     glClearColor(0.0f, 0.1f, 0.4f, 1);
 
@@ -124,7 +142,7 @@ void InGameState::update(uint32_t dt)
     static bool showImGuiHud = true;
     ImGui::SetNextWindowPos(ImVec2());
     ImGui::Begin("Hud", &showImGuiHud, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize);
-    
+
     static bool showPluginsDialog = false;
     if (ImGui::Button("Plugins..."))
     {
@@ -166,7 +184,7 @@ void InGameState::update(uint32_t dt)
 
         ImGui::End();
     }
-    
+
     ImGui::End();
 }
 
@@ -179,6 +197,8 @@ void InGameState::render()
     MAIBO_GL_SENTRY(GLDepthWrite, false);
 
     m_mapRendering->render(proj);
+
+    m_renderer->render(proj);
 }
 
 void InGameState::endFrame()
