@@ -16,6 +16,8 @@ public:
     virtual void update(uint32_t dms) override;
     virtual bool checkObject(dynamix::object& object) const override;
 
+    const dynamix::object* currentObject() const { return m_currentObject; }
+
 private:
     virtual bool onNewObject(dynamix::object& object) override;
     virtual bool onRemovingObject(dynamix::object& object, bool force) override;

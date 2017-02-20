@@ -17,6 +17,13 @@
 
 #include "CharacterNames.h"
 
+#include "input/InputManager.h"
+
+#include "mixins/KeyboardControl.mix.h"
+
+#include "gameplay/messages/TransformMessages.h"
+#include "gameplay/messages/CharacterMessages.h"
+
 #include <maibo/Common/GLSentries.h>
 
 #include <imgui.h>
@@ -27,6 +34,7 @@ using namespace maibo;
 
 InGameState::InGameState()
     : m_camPos(v(1, 15, 0))
+    , m_camTarget(m_camPos)
     , m_camMoveWeight(point2::zero())
 {
 }
@@ -49,7 +57,9 @@ bool InGameState::initialize()
     {
         for (auto& name : team)
         {
-            m_game->spawnCharacter(teamId, name);
+            auto& c = m_game->spawnCharacter(teamId, name);
+            mutate(c).add<KeyboardControl>();
+            m_game->onObjectMutated(c);
         }
         ++teamId;
     }
@@ -67,6 +77,8 @@ void InGameState::deinitialize()
 
 bool InGameState::handleEvent(const SDL_Event& event)
 {
+    auto& im = InputManager::instance();
+
     if (event.type == SDL_KEYUP)
     {
         switch (event.key.keysym.sym)
@@ -80,12 +92,26 @@ bool InGameState::handleEvent(const SDL_Event& event)
             m_camMoveWeight.x = 0.f;
             break;
         case SDLK_UP:
+            im.setCommand(Command::Up);
             break;
         case SDLK_DOWN:
+            im.setCommand(Command::Down);
             break;
         case SDLK_LEFT:
+            im.setCommand(Command::Left);
             break;
         case SDLK_RIGHT:
+            im.setCommand(Command::Right);
+            break;
+        case SDLK_SPACE:
+        {
+            auto currentActor = m_game->currentActor();
+            if (currentActor)
+            {
+                std::cout << ::name(currentActor) << std::endl;
+                m_camTarget = ::position(currentActor).as_vector2_t<float>().xyz(0);
+            }
+        }
             break;
         case SDLK_RETURN:
         case SDLK_RETURN2:
@@ -136,7 +162,27 @@ void InGameState::update(uint32_t dt)
     {
         auto n = normalize(m_camMoveWeight);
         n *= float(dt) / 100;
-        m_camPos.xy() += n;
+        m_camTarget.xy() += n;
+    }
+
+    auto dir = m_camTarget - m_camPos;
+    if (dir.length_sq() < 0.0001f)
+    {
+        m_camPos = m_camTarget;
+    }
+    else
+    {
+        auto len = dir.length();
+        dir /= len; // normalie without finding length twice
+        auto mag = float(dt) / 50;
+        if (len < mag)
+        {
+            m_camPos = m_camTarget;
+        }
+        else
+        {
+            m_camPos += dir * mag;
+        }
     }
 
     static bool showImGuiHud = true;
@@ -203,5 +249,6 @@ void InGameState::render()
 
 void InGameState::endFrame()
 {
+    InputManager::instance().setCommand(Command::None);
 }
 

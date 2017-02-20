@@ -10,6 +10,10 @@
 
 #include "Character.mix.h"
 
+#include "../messages/ActorMessages.h"
+
+class Map;
+
 class GAMEPLAY_API Character
 {
 public:
@@ -20,11 +24,21 @@ public:
     void setTeam(int team) { m_team = team; }
     int team() const { return m_team; }
     int hp() const { return m_hp; }
+    void setMap(Map& map);
+
+    bool canExecuteCommand(Command cmd) const;
+    void executeCommand(Command cmd);
 
 private:
+    bool canMoveTo(const yama::ivector2& pos) const;
+    void moveTo(const yama::ivector2& pos);
+
+    yama::ivector2 newPosFromCommand(Command cmd) const;
+
     std::string m_name;
     int m_team = 0;
     int m_hp = 0;
+    Map* m_map = nullptr;
 };
 
 

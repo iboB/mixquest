@@ -13,6 +13,8 @@
 #include "mixins/Transform.mix.h"
 #include "mixins/Character.h"
 
+#include "systems/ActorSystem.h"
+
 #include "messages/TransformMessages.h"
 
 using namespace yama;
@@ -20,6 +22,7 @@ using namespace yama;
 Game::Game(const MapDescription& mapDesc)
     : m_map(mapDesc)
 {
+    addSystem(m_actorSystem = new ActorSystem);
 }
 
 Game::~Game()
@@ -75,6 +78,7 @@ dynamix::object& Game::spawnCharacter(int team, const std::string& name)
     auto character = c->get<Character>();
     character->setName(name);
     character->setTeam(team);
+    character->setMap(m_map);
 
     // find some empty square on the map to put the character
     while (true)
@@ -91,6 +95,7 @@ dynamix::object& Game::spawnCharacter(int team, const std::string& name)
     }
 
     addObject(*c);
+    m_map.addObject(*c, ::position(c));
 
     return *c;
 }
@@ -103,4 +108,9 @@ void Game::addObject(dynamix::object& obj)
     {
         system->onObjectCreated(obj);
     }
+}
+
+const dynamix::object* Game::currentActor() const
+{
+    return m_actorSystem->currentObject();
 }

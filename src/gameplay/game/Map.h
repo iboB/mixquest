@@ -30,7 +30,12 @@ public:
         return m_size;
     }
 
+    void addObject(dynamix::object& obj, yama::ivector2 coord);
+    void moveObject(dynamix::object& obj, yama::ivector2 from, yama::ivector2 to);
+
 private:
+    Cell* pcell(yama::ivector2 coord);
+
     const yama::ivector2 m_size;
     std::vector<Cell> m_cells;
 };

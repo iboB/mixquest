@@ -12,6 +12,7 @@
 
 class GameplaySystem;
 struct MapDescription;
+class ActorSystem;
 
 class GAMEPLAY_API Game
 {
@@ -31,6 +32,11 @@ public:
 
     dynamix::object& spawnCharacter(int team, const std::string& name);
 
+    const Map& map() const { return m_map; }
+    Map& map() { return m_map; }
+
+    const dynamix::object* currentActor() const;
+
 private:
     void addObject(dynamix::object& obj);
 
@@ -39,4 +45,6 @@ private:
     std::vector<GameplaySystem*> m_systems;
 
     std::vector<dynamix::object*> m_objects;
+
+    ActorSystem* m_actorSystem = nullptr;
 };

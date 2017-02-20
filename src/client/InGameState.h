@@ -35,6 +35,7 @@ private:
     Game* m_game = nullptr;
     MapRendering* m_mapRendering = nullptr;
     yama::point3 m_camPos;
+    yama::point3 m_camTarget;
     yama::point2 m_camMoveWeight;
 
     std::unique_ptr<Renderer> m_renderer;

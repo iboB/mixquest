@@ -22,7 +22,38 @@ Map::Map(const MapDescription& desc)
 
 const Map::Cell& Map::cell(int x, int y) const
 {
-    assert(x < m_size.x && y < m_size.y);
+    static Cell outside;
+    if (x < 0 || x >= m_size.x || y < 0 || y >= m_size.y)
+        return outside;
+
     return m_cells[y * m_size.x + x];
 }
 
+Map::Cell* Map::pcell(yama::ivector2 coord)
+{
+    if (coord.x < 0 || coord.x >= m_size.x || coord.y < 0 || coord.y >= m_size.y)
+        return nullptr;
+
+    return &m_cells[coord.y * m_size.x + coord.x];
+}
+
+void Map::addObject(dynamix::object& obj, yama::ivector2 coord)
+{
+    auto c = pcell(coord);
+    assert(c);
+    c->objects.push_back(&obj);
+}
+
+void Map::moveObject(dynamix::object& obj, yama::ivector2 from, yama::ivector2 to)
+{
+    auto cf = pcell(from);
+    assert(cf);
+    auto ct = pcell(to);
+    assert(ct);
+
+    auto f = find(cf->objects.begin(), cf->objects.end(), &obj);
+    assert(f != cf->objects.end());
+    cf->objects.erase(f);
+
+    ct->objects.push_back(&obj);
+}
