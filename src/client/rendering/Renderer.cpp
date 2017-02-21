@@ -28,9 +28,9 @@ Renderer::~Renderer()
 void Renderer::addRenderOp(const RenderOp& op)
 {
     m_frameRenderOps.push_back(op);
+    uint32_t base = uint32_t(m_frameVertices.size());
     m_frameVertices.insert(m_frameVertices.end(), op.geometry, op.geometry + op.numVertices);
     m_frameIndices.reserve(m_frameIndices.size() + op.numIndices);
-    uint32_t base = uint32_t(m_frameVertices.size());
     for (int i = 0; i < op.numIndices; ++i)
     {
         m_frameIndices.push_back(base + op.indices[i]);
