@@ -10,8 +10,10 @@
 #include "messages/RenderingMessages.h"
 
 #include "mixins/CharacterRendering.mix.h"
+#include "mixins/HealthBar.mix.h"
 
 #include "gameplay/mixins/Character.h"
+#include "gameplay/messages/CharacterMessages.h"
 
 RenderingSystem::RenderingSystem(Renderer& renderer)
     : m_renderer(renderer)
@@ -40,6 +42,15 @@ bool RenderingSystem::checkObject(dynamix::object& object) const
         {
             dynamix::mutate(object).add<CharacterRendering>();
             initializeCharacterRendering(object);
+        }
+    }
+
+    if (object.implements(hp_msg))
+    {
+        if (!object.has<HealthBar>())
+        {
+            dynamix::mutate(object).add<HealthBar>();
+            initializeHealthBar(object);
         }
     }
 

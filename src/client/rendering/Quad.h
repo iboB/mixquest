@@ -24,7 +24,13 @@ public:
 
     void setSprite(const maibo::Sprite& sprite);
 
+    void setIdentityTexCoords();
+
     const Vertex* vertices() const {
+        return m_vertices;
+    }
+
+    Vertex* modifyVertices() {
         return m_vertices;
     }
 

@@ -61,6 +61,12 @@ bool LoadAllAssetsState::initialize()
         }
     }
 
+    auto future = rm.loadTexture("assets/health.png");
+    addFuture(future);
+    auto rttask = new RetainTextureTask("health.png", future);
+    tm.pushTask(rttask);
+    addFuture(rttask->m_future);
+
     glClearColor(1, 0.1f, 0.4f, 1);
 
     return true;

@@ -24,6 +24,7 @@ public:
     void setTeam(int team) { m_team = team; }
     int team() const { return m_team; }
     int hp() const { return m_hp; }
+    int maxHP() const { return m_maxHP; }
     void setMap(Map& map);
 
     bool canExecuteCommand(Command cmd) const;
@@ -37,7 +38,8 @@ private:
 
     std::string m_name;
     int m_team = 0;
-    int m_hp = 0;
+    int m_hp = 100;
+    int m_maxHP = 100;
     Map* m_map = nullptr;
 };
 

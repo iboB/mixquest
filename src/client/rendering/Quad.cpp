@@ -43,3 +43,11 @@ void Quad::setSprite(const maibo::Sprite& sprite)
     m_vertices[2].texCoord = sprite.tc._00;
     m_vertices[3].texCoord = sprite.tc._10;
 }
+
+void Quad::setIdentityTexCoords()
+{
+    m_vertices[0].texCoord = v(0, 1);
+    m_vertices[1].texCoord = v(1, 1);
+    m_vertices[2].texCoord = v(0, 0);
+    m_vertices[3].texCoord = v(1, 0);
+}
