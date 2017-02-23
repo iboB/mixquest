@@ -12,7 +12,7 @@ DYNAMIX_EXPORTED_MESSAGE_0(GAMEPLAY_API, bool, decideActorActions);
 
 enum class Command
 {
-    None, Down, Right, Up, Left
+    None, Down, Right, Up, Left, SelfHarm,
 };
 
 DYNAMIX_EXPORTED_CONST_MESSAGE_1(GAMEPLAY_API, bool, canExecuteCommand, Command, c);

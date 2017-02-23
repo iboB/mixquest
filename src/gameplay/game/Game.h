@@ -30,12 +30,14 @@ public:
     void addSystem(GameplaySystem* system);
     void removeSystem(GameplaySystem* system);
 
-    dynamix::object& spawnCharacter(int team, const std::string& name);
+    dynamix::object& spawnCharacter(int team, const std::string& name, yama::ivector2* position = nullptr);
 
     const Map& map() const { return m_map; }
     Map& map() { return m_map; }
 
     const dynamix::object* currentActor() const;
+
+    std::vector<dynamix::object*>& modifyObjects() { return m_objects; }
 
 private:
     void addObject(dynamix::object& obj);

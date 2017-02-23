@@ -24,6 +24,8 @@
 #include "gameplay/messages/TransformMessages.h"
 #include "gameplay/messages/CharacterMessages.h"
 
+#include "plugins/PluginManager.h"
+
 #include <maibo/Common/GLSentries.h>
 
 #include <imgui.h>
@@ -31,6 +33,7 @@
 using namespace yama;
 using namespace dynamix;
 using namespace maibo;
+using namespace std;
 
 InGameState::InGameState()
     : m_camPos(v(1, 15, 0))
@@ -49,20 +52,34 @@ bool InGameState::initialize()
 
     m_game = new Game(mapDesc);
 
+    PluginManager::instance().setGame(m_game);
+
     m_renderer.reset(new Renderer);
     m_game->addSystem(new RenderingSystem(*m_renderer));
 
-    int teamId = 0;
-    for (auto& team : Character_Names)
-    {
-        for (auto& name : team)
-        {
-            auto& c = m_game->spawnCharacter(teamId, name);
-            mutate(c).add<KeyboardControl>();
-            m_game->onObjectMutated(c);
-        }
-        ++teamId;
-    }
+    // spawn characters at random pos
+    //int teamId = 0;
+    //for (auto& team : Character_Names)
+    //{
+    //    for (auto& name : team)
+    //    {
+    //        auto& c = m_game->spawnCharacter(teamId, name);
+    //        mutate(c).add<KeyboardControl>();
+    //        m_game->onObjectMutated(c);
+    //    }
+    //    ++teamId;
+    //}
+
+    ivector2 pos = vt(11, 20);
+    m_camPos = m_camTarget = pos.as_vector2_t<float>().xyz(0);
+    auto& c = m_game->spawnCharacter(0, "Royce", &pos);
+    mutate(c).add<KeyboardControl>();
+    m_game->onObjectMutated(c);
+
+    pos.x += 5;
+    auto& e = m_game->spawnCharacter(1, "PterosMale002", &pos);
+    mutate(e).add<KeyboardControl>();
+    m_game->onObjectMutated(e);
 
     glClearColor(0.0f, 0.1f, 0.4f, 1);
 
@@ -103,12 +120,15 @@ bool InGameState::handleEvent(const SDL_Event& event)
         case SDLK_RIGHT:
             im.setCommand(Command::Right);
             break;
+        case SDLK_h:
+            im.setCommand(Command::SelfHarm);
+            break;
         case SDLK_SPACE:
         {
             auto currentActor = m_game->currentActor();
             if (currentActor)
             {
-                std::cout << ::name(currentActor) << std::endl;
+                std::cout << "Camera moving towards: " << ::name(currentActor) << std::endl;
                 m_camTarget = ::position(currentActor).as_vector2_t<float>().xyz(0);
             }
         }
@@ -153,6 +173,18 @@ void InGameState::beginFrame()
 
 }
 
+static bool ImGuiStringVectorItemGetter(void* data, int id, const char** outText)
+{
+    const auto* vec = reinterpret_cast<vector<string>*>(data);
+
+    if (id >= int(vec->size()))
+    {
+        return false;
+    }
+
+    *outText = vec->at(id).c_str();
+    return true;
+};
 
 void InGameState::update(uint32_t dt)
 {
@@ -197,36 +229,35 @@ void InGameState::update(uint32_t dt)
 
     if (showPluginsDialog)
     {
-        ImGui::Begin("Plugins", &showPluginsDialog);
+        auto& pm = PluginManager::instance();
 
-        static const char* files[] = { "AI", "Test1", "Test2" };
+        ImGui::Begin("Plugins", &showPluginsDialog, ImVec2(300, 200));
+
         static int curItem = 0;
-        ImGui::ListBox("Files", &curItem, files, sizeof(files)/sizeof(char*), 10);
+        auto& plugins = pm.plugins();
 
-        ImGui::Columns(3);
+        ImGui::ListBox("Files", &curItem, ImGuiStringVectorItemGetter, (void*)&plugins, int(plugins.size()), 5);
 
         if (ImGui::Button("Load"))
         {
-            std::cout << "Loading " << files[curItem] << "\n";
+            pm.loadPlugin(plugins[curItem]);
             showPluginsDialog = false;
         }
 
-        ImGui::NextColumn();
+        ImGui::SameLine();
 
         if (ImGui::Button("Unload"))
         {
-            std::cout << "Unloading " << files[curItem] << "\n";
+            pm.unloadPlugin(plugins[curItem]);
             showPluginsDialog = false;
         }
 
-        ImGui::NextColumn();
+        ImGui::SameLine();
 
         if (ImGui::Button("Cancel"))
         {
             showPluginsDialog = false;
         }
-
-        ImGui::Columns(1);
 
         ImGui::End();
     }

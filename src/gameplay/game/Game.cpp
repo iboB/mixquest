@@ -68,7 +68,7 @@ void Game::onObjectMutated(dynamix::object& obj)
     }
 }
 
-dynamix::object& Game::spawnCharacter(int team, const std::string& name)
+dynamix::object& Game::spawnCharacter(int team, const std::string& name, ivector2* position)
 {
     auto c = new dynamix::object;
     dynamix::mutate(c)
@@ -80,18 +80,25 @@ dynamix::object& Game::spawnCharacter(int team, const std::string& name)
     character->setTeam(team);
     character->setMap(m_map);
 
-    // find some empty square on the map to put the character
-    while (true)
+    if (!position)
     {
-        int x = rand() % m_map.size().x;
-        int y = rand() % m_map.size().y;
-        auto& cell = m_map.cell(x, y);
-        if (cell.walkable && cell.objects.empty())
+        // find random empty square on the map to put the character
+        while (true)
         {
-            // suitable position found
-            ::setPosition(c, vt(x, y));
-            break;
+            int x = rand() % m_map.size().x;
+            int y = rand() % m_map.size().y;
+            auto& cell = m_map.cell(x, y);
+            if (cell.walkable && cell.objects.empty())
+            {
+                // suitable position found
+                ::setPosition(c, vt(x, y));
+                break;
+            }
         }
+    }
+    else
+    {
+        ::setPosition(c, *position);
     }
 
     addObject(*c);

@@ -57,11 +57,16 @@ if(MIXQUEST_USE_SHARED_LIBS)
     endif()
 
     add_definitions(-DDYNAMIX_DYNLIB)
+else()
+    add_definitions(-DNO_PLUGINS)
 endif()
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/gameplay)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/client)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/plugins/ai)
+
 maibo_target_properties(dynamix)
 maibo_target_properties(gameplay)
 maibo_target_properties(mixquest)
+maibo_target_properties(ai)

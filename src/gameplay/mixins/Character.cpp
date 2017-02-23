@@ -21,16 +21,31 @@ Character::Character()
 
 bool Character::canExecuteCommand(Command cmd) const
 {
-    auto pos = newPosFromCommand(cmd);
-
-    return canMoveTo(pos);
+    switch (cmd)
+    {
+    case Command::SelfHarm:
+        return true;
+    default:
+    {
+        auto pos = newPosFromCommand(cmd);
+        return canMoveTo(pos);
+    }
+    }
 }
 
 void Character::executeCommand(Command cmd)
 {
-    auto pos = newPosFromCommand(cmd);
-
-    return moveTo(pos);
+    switch (cmd)
+    {
+    case Command::SelfHarm:
+        m_hp -= 2;
+        break;
+    default:
+    {
+        auto pos = newPosFromCommand(cmd);
+        moveTo(pos);
+    }
+    }
 }
 
 ivector2 Character::newPosFromCommand(Command cmd) const
