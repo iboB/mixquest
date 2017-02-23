@@ -26,6 +26,9 @@
 
 #include "plugins/PluginManager.h"
 
+#include "gameplay/mixins/SelectedActor.mix.h"
+#include "mixins/SelectionMark.mix.h"
+
 #include <maibo/Common/GLSentries.h>
 
 #include <imgui.h>
@@ -34,6 +37,60 @@ using namespace yama;
 using namespace dynamix;
 using namespace maibo;
 using namespace std;
+
+namespace
+{
+
+class bundle : public mutation_rule, private mixin_collection
+{
+public:
+    using mixin_collection::add;
+    using mixin_collection::has;
+    using mixin_collection::remove;
+
+    virtual void apply_to(object_type_mutation& mutation) override
+    {
+        // find if the mutation is adding any of the bundled mixins
+
+        mixin_id adding = INVALID_MIXIN_ID;
+        mixin_id removing = INVALID_MIXIN_ID;
+
+        for (const auto* mixin_info : _compact_mixins)
+        {
+            if (mutation.is_adding(mixin_info->id))
+            {
+                adding = mixin_info->id;
+                break;
+            }
+            else if (mutation.is_removing(mixin_info->id))
+            {
+                removing = mixin_info->id;
+                break;
+            }
+        }
+
+        DYNAMIX_ASSERT_MSG(adding == INVALID_MIXIN_ID || removing == INVALID_MIXIN_ID, "mutation breaking a bundle mixin rule");
+
+        if (adding != INVALID_MIXIN_ID)
+        {
+            for (const auto* mixin_info : _compact_mixins)
+            {
+                // add all others to the object
+                mutation.start_adding(mixin_info->id);                
+            }
+        }
+        else if(removing != INVALID_MIXIN_ID)
+        {
+            for (const auto* mixin_info : _compact_mixins)
+            {
+                // remove all others from the object
+                mutation.start_removing(mixin_info->id);
+            }
+        }
+    }
+};
+
+}
 
 InGameState::InGameState()
     : m_camPos(v(1, 15, 0))
@@ -44,6 +101,11 @@ InGameState::InGameState()
 
 bool InGameState::initialize()
 {
+    auto rule = new bundle;
+    rule->add<SelectionMark>();
+    rule->add<SelectedActor>();
+    add_new_mutation_rule(rule);
+
     m_mapRendering = new MapRendering;
 
     auto& ga = GlobalAssets::instance();

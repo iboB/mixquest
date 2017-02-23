@@ -41,6 +41,7 @@ Game::~Game()
 void Game::addSystem(GameplaySystem* system)
 {
     assert(system);
+    system->m_game = this;
     m_systems.push_back(system);
 }
 

@@ -9,6 +9,9 @@
 #include "ActorSystem.h"
 
 #include "messages/ActorMessages.h"
+#include "mixins/SelectedActor.mix.h"
+
+#include "game/Game.h"
 
 void ActorSystem::update(uint32_t dms)
 {
@@ -21,6 +24,8 @@ void ActorSystem::update(uint32_t dms)
         if (!m_currentObject)
         {
             m_currentObject = m_objects.front();
+            dynamix::mutate(m_currentObject).add<SelectedActor>();
+            m_game->onObjectMutated(*m_currentObject);
         }
 
         if (decideActorActions(m_currentObject))
@@ -65,6 +70,10 @@ void ActorSystem::selectNextObject()
     {
         if (*i == m_currentObject)
         {
+            assert(m_currentObject->has<SelectedActor>());
+            dynamix::mutate(m_currentObject).remove<SelectedActor>();
+            m_game->onObjectMutated(*m_currentObject);
+
             ++i;
             if (i == m_objects.end())
             {
@@ -72,6 +81,8 @@ void ActorSystem::selectNextObject()
             }
 
             m_currentObject = *i;
+            dynamix::mutate(m_currentObject).add<SelectedActor>();
+            m_game->onObjectMutated(*m_currentObject);
             return;
         }
     }

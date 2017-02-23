@@ -1,5 +1,7 @@
 #pragma once
 
+class Game;
+
 class GAMEPLAY_API GameplaySystem
 {
 public:
@@ -21,6 +23,8 @@ public:
     void onObjectMutated(dynamix::object& object);
 
 protected:
+    friend class Game;
+    Game* m_game = nullptr;
 
     // called when a new object is about to be pushed back to the system's object list
     // return true to accept the add or false to block it
