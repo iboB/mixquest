@@ -27,8 +27,6 @@ else()
     add_library(ai STATIC
         "${sources}"
     )
-
-    target_link_libraries(mixquest ai)
 endif()
 
 add_precompiled_header(ai ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/AI.pch.h ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/AI.pch.cpp)

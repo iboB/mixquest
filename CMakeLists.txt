@@ -62,9 +62,9 @@ else()
 endif()
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/gameplay)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/client)
-
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/plugins/ai)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/client)
 
 maibo_target_properties(dynamix)
 maibo_target_properties(gameplay)

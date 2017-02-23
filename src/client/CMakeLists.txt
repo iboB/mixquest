@@ -32,6 +32,10 @@ target_link_libraries(mixquest
     ${MAIBO_LIBS}
 )
 
+if(NOT MIXQUEST_USE_SHARED_LIBS)
+    target_link_libraries(mixquest ai)
+endif()
+
 add_precompiled_header(mixquest ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/MixQuest.pch.h ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/MixQuest.pch.cpp)
 
 if(MSVC)

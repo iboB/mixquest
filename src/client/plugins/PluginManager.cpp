@@ -14,7 +14,59 @@
 #include "plugins/ai/AI.plugin.h"
 #undef PLUGIN_DEF
 
+PluginManager::Plugin* PluginManager::findPlugin(const std::string& name)
+{
+    assert(m_pluginNames.size() == m_plugins.size());
+
+    auto f = std::find(m_pluginNames.begin(), m_pluginNames.end(), name);
+
+    if (f == m_pluginNames.end())
+        return nullptr;
+
+    return &m_plugins[f - m_pluginNames.begin()];
+}
+
 #if defined NO_PLUGINS
+
+using namespace std;
+
+PluginManager::PluginManager()
+{
+}
+
+void PluginManager::setGame(Game* game)
+{
+    addPlugin("ai",
+    [game](void* dl) {
+        AIPluginLoad(game);
+    },
+    []() {
+        AIPluignUnload();
+    });
+}
+
+void PluginManager::addPlugin(const std::string& name, std::function<void(void*)> loadFunc, std::function<void()> unloadFunc)
+{
+    Plugin p = { string(), loadFunc, unloadFunc, nullptr };
+    m_pluginNames.emplace_back(name);
+    m_plugins.emplace_back(move(p));
+}
+
+void PluginManager::loadPlugin(const std::string& name)
+{
+    auto p = findPlugin(name);
+    if (!p || p->dynlib) return;
+    p->dynlib = reinterpret_cast<void*>(1);
+    p->loadFunc(p->dynlib);
+}
+
+void PluginManager::unloadPlugin(const std::string& name)
+{
+    auto p = findPlugin(name);
+    if (!p || !p->dynlib) return;
+    p->unloadFunc();
+    p->dynlib = nullptr;
+}
 
 #else
 
@@ -44,7 +96,7 @@ using namespace std;
 
 PluginManager::PluginManager()
 {
-    const string& exe = maibo::Application_Instance().fileName();
+    const auto& exe = maibo::Application_Instance().fileName();
     m_pluginPath.assign(exe.begin(), exe.begin() + exe.rfind('/'));
 }
 
@@ -78,18 +130,6 @@ void PluginManager::addPlugin(const std::string& name, std::function<void(void*)
     Plugin p = { move(path), loadFunc, unloadFunc, false };
     m_pluginNames.emplace_back(name);
     m_plugins.emplace_back(move(p));
-}
-
-PluginManager::Plugin* PluginManager::findPlugin(const std::string& name)
-{
-    assert(m_pluginNames.size() == m_plugins.size());
-
-    auto f = find(m_pluginNames.begin(), m_pluginNames.end(), name);
-
-    if (f == m_pluginNames.end())
-        return nullptr;
-
-    return &m_plugins[f - m_pluginNames.begin()];
 }
 
 void PluginManager::loadPlugin(const std::string& name)
