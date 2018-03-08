@@ -4,7 +4,6 @@ project(mixquest-plugin-ai)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${DYNAMIX_INCLUDE}
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../maibo/third_party/lib/yama/include
 )
@@ -22,6 +21,10 @@ if(MIXQUEST_USE_SHARED_LIBS)
     target_link_libraries(ai
         gameplay
         dynamix
+    )
+
+    target_compile_options(ai PRIVATE
+        "-fPIC"
     )
 else()
     add_library(ai STATIC

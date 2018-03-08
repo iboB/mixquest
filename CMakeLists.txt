@@ -55,8 +55,6 @@ if(MIXQUEST_USE_SHARED_LIBS)
     if(MSVC)
         add_definitions(/wd4251)
     endif()
-
-    add_definitions(-DDYNAMIX_DYNLIB)
 else()
     add_definitions(-DNO_PLUGINS)
 endif()

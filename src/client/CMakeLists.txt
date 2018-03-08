@@ -5,7 +5,6 @@ project(mixquest)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${MAIBO_INCLUDE_DIRS}
-    ${DYNAMIX_INCLUDE}
     ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${CMAKE_CURRENT_SOURCE_DIR}/../../third_party/tmxparser/src
 )
@@ -48,5 +47,7 @@ if(MSVC)
         "${CMAKE_CURRENT_BINARY_DIR}/mixquest.vcxproj.user"
         @ONLY
     )
+else()
+    target_link_libraries(mixquest dl)
 endif()
 

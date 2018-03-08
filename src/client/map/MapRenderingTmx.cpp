@@ -30,8 +30,8 @@ class QuadIndexGenerator
 {
 public:
     QuadIndexGenerator()
-        : m_indicesArray({ 0, 1, 2, 2, 1, 3 })
-        , m_wrap(0)
+        : m_wrap(0)
+        , m_indicesArray({ 0, 1, 2, 2, 1, 3 })
     {}
 
     uint32_t operator ()()

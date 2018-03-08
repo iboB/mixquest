@@ -1,3 +1,5 @@
+#version 100
+
 uniform mat4 u_proj;
 
 attribute vec3 a_pos;

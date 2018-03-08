@@ -8,7 +8,6 @@ ucm_add_dirs(. TO sources RECURSIVE FILTER_POP 1)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../../maibo/third_party/lib/yama/include
-    ${DYNAMIX_INCLUDE}
 )
 
 if(MIXQUEST_USE_SHARED_LIBS)
@@ -20,6 +19,10 @@ if(MIXQUEST_USE_SHARED_LIBS)
 
     target_link_libraries(gameplay
         dynamix
+    )
+
+    target_compile_options(gameplay PRIVATE
+        "-fPIC"
     )
 else()
     add_library(gameplay STATIC

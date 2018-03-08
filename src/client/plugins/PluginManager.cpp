@@ -127,7 +127,7 @@ void PluginManager::addPlugin(const std::string& name, std::function<void(void*)
 
     auto path = m_pluginPath + '/' + move(filename);
 
-    Plugin p = { move(path), loadFunc, unloadFunc, false };
+    Plugin p = { move(path), loadFunc, unloadFunc, nullptr };
     m_pluginNames.emplace_back(name);
     m_plugins.emplace_back(move(p));
 }
