@@ -47,6 +47,8 @@ if(MSVC)
         "${CMAKE_CURRENT_BINARY_DIR}/mixquest.vcxproj.user"
         @ONLY
     )
+
+    target_compile_definitions(mixquest PRIVATE -D_CRT_SECURE_NO_WARNINGS=1)
 else()
     target_link_libraries(mixquest dl)
 endif()

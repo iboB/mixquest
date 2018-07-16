@@ -76,7 +76,7 @@ public:
             for (const auto* mixin_info : _compact_mixins)
             {
                 // add all others to the object
-                mutation.start_adding(mixin_info->id);                
+                mutation.start_adding(mixin_info->id);
             }
         }
         else if(removing != INVALID_MIXIN_ID)
@@ -250,6 +250,9 @@ static bool ImGuiStringVectorItemGetter(void* data, int id, const char** outText
 
 void InGameState::update(uint32_t dt)
 {
+    auto& pm = PluginManager::instance();
+    pm.update(dt);
+
     m_game->update(dt);
 
     if (m_camMoveWeight.manhattan_length() > 0)
@@ -291,8 +294,6 @@ void InGameState::update(uint32_t dt)
 
     if (showPluginsDialog)
     {
-        auto& pm = PluginManager::instance();
-
         ImGui::Begin("Plugins", &showPluginsDialog, ImVec2(300, 200));
 
         static int curItem = 0;

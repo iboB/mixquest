@@ -8,7 +8,13 @@
 //
 #include "PluginManager.h"
 
+#include "HotswapFSWatcher.h"
+
 #include <maibo/Application.h>
+
+#include <ctime>
+#include <sys/stat.h>
+#include <fstream>
 
 #define PLUGIN_DEF
 #include "plugins/ai/AI.plugin.h"
@@ -92,12 +98,66 @@ typedef void* DynamicLib;
 
 #endif
 
+namespace
+{
+bool exists(const std::string& filename)
+{
+    FILE* pFile = fopen(filename.c_str(), "rb");
+
+    if (pFile)
+    {
+        fclose(pFile);
+
+        return true;
+    }
+
+    return false;
+}
+
+void copy_if_newer(const std::string& fsrc, const std::string& fdst)
+{
+    if (!exists(fsrc))
+    {
+        remove(fdst.c_str());
+        return;
+    }
+
+    if (exists(fdst))
+    {
+        struct stat ssrc, sdst;
+        stat(fsrc.c_str(), &ssrc);
+        stat(fdst.c_str(), &sdst);
+
+        auto diff = std::difftime(ssrc.st_mtime, sdst.st_mtime);
+        if (diff < 0)
+        {
+            return;
+        }
+    }
+
+    std::ifstream src(fsrc.c_str(), std::ios::binary);
+    std::ofstream dst(fdst.c_str(), std::ios::binary);
+    dst << src.rdbuf();
+}
+}
+
 using namespace std;
 
 PluginManager::PluginManager()
+    : m_uid(0)
 {
     const auto& exe = maibo::Application_Instance().fileName();
-    m_pluginPath.assign(exe.begin(), exe.begin() + exe.rfind('/'));
+    m_buildOutputDir.assign(exe.begin(), exe.begin() + exe.rfind('/'));
+    m_pluginsDir = m_buildOutputDir + "/plugins";
+
+    m_watcher.reset(new HotswapFSWatcher(*this));
+}
+
+PluginManager::~PluginManager() = default;
+
+void PluginManager::update(uint32_t dt)
+{
+    m_watcher->update(dt);
 }
 
 void PluginManager::setGame(Game* game)
@@ -125,28 +185,71 @@ void PluginManager::addPlugin(const std::string& name, std::function<void(void*)
     auto filename = "lib" + name + ".so";
 #endif
 
-    auto path = m_pluginPath + '/' + move(filename);
-
-    Plugin p = { move(path), loadFunc, unloadFunc, nullptr };
+    Plugin p = { move(filename), loadFunc, unloadFunc, nullptr };
     m_pluginNames.emplace_back(name);
     m_plugins.emplace_back(move(p));
+}
+
+void PluginManager::onFileChanged(const std::string& filename)
+{
+    for (auto& p : m_plugins)
+    {
+        if (p.filename == filename && p.dynlib) // only reload loaded plugins
+        {
+            reloadPlugin(p);
+            return;
+        }
+    }
 }
 
 void PluginManager::loadPlugin(const std::string& name)
 {
     auto p = findPlugin(name);
     if (!p || p->dynlib) return;
-    p->dynlib = LoadDynamicLib(p->fileName.c_str());
-    p->loadFunc(p->dynlib);
+    loadPlugin(*p);
 }
 
 void PluginManager::unloadPlugin(const std::string& name)
 {
     auto p = findPlugin(name);
     if (!p || !p->dynlib) return;
-    p->unloadFunc();
-    UnloadDynamicLib(reinterpret_cast<DynamicLib>(p->dynlib));
-    p->dynlib = nullptr;
+    unloadPlugin(*p);
+}
+
+void PluginManager::loadPlugin(Plugin& p)
+{
+    assert(!p.dynlib);
+
+    string uid = (m_uid > 0) ? to_string(m_uid) : string();
+
+    std::string pluginPath = m_pluginsDir + "/" + uid + p.filename;
+
+    std::string src = m_buildOutputDir + "/" + p.filename;
+    copy_if_newer(src, pluginPath);
+
+    p.dynlib = LoadDynamicLib(pluginPath.c_str());
+
+    if (p.dynlib)
+    {
+        p.loadFunc(p.dynlib);
+    }
+}
+
+void PluginManager::unloadPlugin(Plugin& p)
+{
+    if (p.dynlib)
+    {
+        p.unloadFunc();
+        UnloadDynamicLib(reinterpret_cast<DynamicLib>(p.dynlib));
+        p.dynlib = nullptr;
+    }
+}
+
+void PluginManager::reloadPlugin(Plugin& p)
+{
+    std::cout << "Hotswapping " << p.filename << endl;
+    unloadPlugin(p);
+    loadPlugin(p);
 }
 
 #endif
