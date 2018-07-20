@@ -7,6 +7,7 @@ include_directories(
     ${MAIBO_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${CMAKE_CURRENT_SOURCE_DIR}/../../third_party/tmxparser/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../third_party/sol2/single
 )
 
 link_directories(
@@ -28,6 +29,7 @@ target_link_libraries(mixquest
     tmxparser
     gameplay
     dynamix
+    lua
     ${MAIBO_LIBS}
 )
 

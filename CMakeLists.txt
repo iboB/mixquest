@@ -49,6 +49,8 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/dynamix)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/tmxparser)
 set_target_properties(tmxparser PROPERTIES FOLDER ThirdParty)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/lua)
+
 maibo_set_c_cxx_flags()
 
 if(MIXQUEST_USE_SHARED_LIBS)

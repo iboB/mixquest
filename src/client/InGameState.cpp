@@ -29,6 +29,8 @@
 #include "gameplay/mixins/SelectedActor.mix.h"
 #include "mixins/SelectionMark.mix.h"
 
+#include "scripting/ScriptManager.h"
+
 #include <maibo/Common/GLSentries.h>
 
 #include <imgui.h>
@@ -119,6 +121,8 @@ bool InGameState::initialize()
     m_renderer.reset(new Renderer);
     m_game->addSystem(new RenderingSystem(*m_renderer));
 
+    ScriptManager::createInstance();
+
     // spawn characters at random pos
     //int teamId = 0;
     //for (auto& team : Character_Names)
@@ -150,6 +154,7 @@ bool InGameState::initialize()
 
 void InGameState::deinitialize()
 {
+    ScriptManager::destroyInstance();
     delete m_mapRendering;
     delete m_game;
 }

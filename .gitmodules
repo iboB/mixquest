@@ -10,3 +10,9 @@
 [submodule "third_party/tinyxml2"]
 	path = third_party/tinyxml2
 	url = https://github.com/leethomason/tinyxml2.git
+[submodule "third_party/sol2"]
+	path = third_party/sol2
+	url = https://github.com/ThePhD/sol2.git
+[submodule "third_party/lua/lua"]
+	path = third_party/lua/lua
+	url = https://github.com/lua/lua.git
