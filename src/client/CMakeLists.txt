@@ -37,6 +37,8 @@ if(NOT MIXQUEST_USE_SHARED_LIBS)
     target_link_libraries(mixquest ai)
 endif()
 
+set_property(TARGET mixquest PROPERTY CXX_STANDARD 14)
+set(PCH_STD 14)
 add_precompiled_header(mixquest ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/MixQuest.pch.h ${CMAKE_CURRENT_SOURCE_DIR}/${SRC}/MixQuest.pch.cpp)
 
 if(MSVC)
