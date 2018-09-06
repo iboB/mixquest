@@ -5,7 +5,6 @@ project(lua)
 set(sources)
 
 add_library(lua STATIC
-    lua.hpp
     lua/lapi.c
     lua/lcode.c
     lua/lctype.c
@@ -30,6 +29,7 @@ add_library(lua STATIC
     lua/lauxlib.c
 )
 
-target_include_directories(lua INTERFACE .)
+target_include_directories(lua INTERFACE
+    .
+    lua)
 
-set_target_properties(lua PROPERTIES FOLDER ThirdParty)
