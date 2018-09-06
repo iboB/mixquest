@@ -1,2 +1,8 @@
-*bin/
-temp/
+bin/
+vendor/
+
+# Qt Creator
+CMakeLists.txt.user
+
+# Dolphin
+.directory
