@@ -1,15 +1,9 @@
 [submodule "third_party/dynamix"]
 	path = third_party/dynamix
 	url = https://github.com/iboB/dynamix.git
-[submodule "maibo"]
-	path = maibo
-	url = https://github.com/iboB/maibo.git
 [submodule "third_party/tmxparser"]
 	path = third_party/tmxparser
 	url = https://github.com/iboB/tmxparser.git
-[submodule "third_party/tinyxml2"]
-	path = third_party/tinyxml2
-	url = https://github.com/leethomason/tinyxml2.git
 [submodule "third_party/sol2"]
 	path = third_party/sol2
 	url = https://github.com/ThePhD/sol2.git
