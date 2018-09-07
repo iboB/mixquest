@@ -19,6 +19,7 @@ add_library(imgui STATIC
     ${tp}/imgui/imgui.cpp
     ${tp}/imgui/imgui_demo.cpp
     ${tp}/imgui/imgui_draw.cpp
+    ${tp}/imgui/imgui_widgets.cpp
 )
 target_include_directories(imgui
     INTERFACE ${tp}/imgui)
