@@ -110,7 +110,8 @@ bool Application::initialize(Application::CreationParameters cp)
         return false;
     }
 
-    glfwSetInputMode(m_window, GLFW_STICKY_KEYS, 1);
+    // commented-out because of a bug in ubuntu
+    //glfwSetInputMode(m_window, GLFW_STICKY_KEYS, 1);
     glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, 1);
     glfwSetWindowUserPointer(m_window, this);
     glfwSetKeyCallback(m_window, glfw_key_callback);
