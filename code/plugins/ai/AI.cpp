@@ -16,7 +16,7 @@ class AI
 public:
     bool decideActorActions()
     {
-        auto cmd = Command::Right;
+        auto cmd = Command::Left;
         auto alt = Command::Right;
 
         if (::canExecuteCommand(dm_this, cmd))
