@@ -14,7 +14,31 @@ The project gives a real-world example for the following:
 
 There are submodules in this repo. Don't forget to call `git clone --recursive` or after cloning `git submodule update --init --recursive`
 
-*...more to come*
+### Linux/Unix
+
+Only clang is supported!
+
+Install glfw3 with your package manager or from source (for Ubuntu `$ sudo apt-get install glfw3-dev`)
+
+```bash
+$ cd build
+$ mkdir gen
+$ cd gen
+$ cmake ../.. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+$ make
+```
+
+To run use the repo's root directory as for a working directory. Eg `$ ./bin/mixquest`
+
+### Windows
+
+Only Visual C++ 2015 or later is supported
+
+Download glfw3 from source. Build and install in the `vendor` subdirectory.
+
+Generate build scripts or project files with cmake using the same generator that you used for the glfw build.
+
+To run start from the repo's root directory. Eg `> bin\mixquest`
 
 ## License and Copyright
 
