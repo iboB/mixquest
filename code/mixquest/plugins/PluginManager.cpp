@@ -151,6 +151,12 @@ PluginManager::PluginManager()
     m_buildOutputDir.assign(exe.begin(), exe.begin() + exe.rfind('/'));
     m_pluginsDir = m_buildOutputDir + "/plugins";
 
+#if defined(_WIN32)
+    system(("mkdir " + m_pluginsDir).c_str());
+#else
+    system(("mkdir -p " + m_pluginsDir).c_str());
+#endif
+
     m_watcher.reset(new HotswapFSWatcher(*this));
 }
 
