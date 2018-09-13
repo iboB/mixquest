@@ -34,7 +34,7 @@ To run use the repo's root directory as for a working directory. Eg `$ ./bin/mix
 
 Only Visual C++ 2015 or later is supported
 
-Download glfw3 from source. Build and install in the `vendor` subdirectory.
+Download glfw 3.2.1 from source. Build and install in the `vendor/glfw-3.2.1` subdirectory.
 
 Generate build scripts or project files with cmake using the same generator that you used for the glfw build.
 
