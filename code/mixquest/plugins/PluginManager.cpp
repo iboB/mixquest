@@ -77,7 +77,7 @@ void PluginManager::unloadPlugin(const std::string& name)
 
 #else
 
-#if defined (WIN32)
+#if defined (_WIN32)
 
 #   define WIN32_LEAN_AND_MEAN
 #   include <Windows.h>
@@ -152,7 +152,7 @@ PluginManager::PluginManager()
     m_pluginsDir = m_buildOutputDir + "/plugins";
 
 #if defined(_WIN32)
-    system(("mkdir " + m_pluginsDir).c_str());
+    system(("if not exist \"" + m_pluginsDir + "\" mkdir \"" + m_pluginsDir + '"').c_str());
 #else
     system(("mkdir -p " + m_pluginsDir).c_str());
 #endif
