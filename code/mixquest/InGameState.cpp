@@ -106,10 +106,10 @@ static dynamix::object* testObj = nullptr;
 
 bool InGameState::initialize()
 {
-    auto rule = new bundle;
-    rule->add<SelectionMark>();
-    rule->add<SelectedActor>();
-    add_new_mutation_rule(rule);
+//    auto rule = new bundle;
+//    rule->add<SelectionMark>();
+//    rule->add<SelectedActor>();
+//    add_new_mutation_rule(rule);
 
     m_mapRendering = new MapRendering;
 

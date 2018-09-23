@@ -45,14 +45,14 @@ bool RenderingSystem::checkObject(dynamix::object& object) const
         }
     }
 
-    if (object.implements(hp_msg))
-    {
-        if (!object.has<HealthBar>())
-        {
-            dynamix::mutate(object).add<HealthBar>();
-            initializeHealthBar(object);
-        }
-    }
+//    if (object.implements(hp_msg))
+//    {
+//        if (!object.has<HealthBar>())
+//        {
+//            dynamix::mutate(object).add<HealthBar>();
+//            initializeHealthBar(object);
+//        }
+//    }
 
     return object.implements(supplyRenderingParts_msg);
 }

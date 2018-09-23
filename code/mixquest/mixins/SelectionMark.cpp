@@ -61,4 +61,4 @@ private:
     Tileset m_tileset;
 };
 
-DYNAMIX_DEFINE_MIXIN(SelectionMark, priority(1, supplyRenderingParts_msg));
+DYNAMIX_DEFINE_MIXIN(SelectionMark, supplyRenderingParts_msg);
