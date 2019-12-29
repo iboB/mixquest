@@ -1,5 +1,5 @@
 # MixQuest
-# Copyright (c) 2017-2018 Borislav Stanimirov
+# Copyright (c) 2017-2020 Borislav Stanimirov
 #
 # Distributed under the MIT Software License
 # See accompanying file LICENSE.txt or copy at
@@ -11,8 +11,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(mixquest)
 
-set(CMAKE_CXX_STANDARD 14)
-set(PCH_STD 14)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(mq_root ${CMAKE_CURRENT_SOURCE_DIR})
 set(mq_shared YES)
@@ -20,12 +20,10 @@ set(mq_shared YES)
 set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     ${mq_root}/third_party/cmake
-    ${mq_root}/third_party/ucm/cmake
 )
 
 include(precompiled_header)
 include(src_group)
-include(ucm)
 
 macro(mq_target_properties tgt)
     set_target_properties(${tgt}

@@ -1,5 +1,5 @@
 # MixQuest
-# Copyright (c) 2017-2018 Borislav Stanimirov
+# Copyright (c) 2017-2020 Borislav Stanimirov
 #
 # Distributed under the MIT Software License
 # See accompanying file LICENSE.txt or copy at
@@ -7,21 +7,28 @@
 #
 
 set(sources)
-ucm_add_dirs(. TO sources RECURSIVE FILTER_POP 1)
+src_group("ai" sources
+    AI.pch.h
+    AI.pch.cpp
+    AI.mix.h
+    AI.plugin.h
+    AI.entrypoint.cpp
+    AI.cpp
+)
 
 if(mq_shared)
     add_library(ai SHARED
         "${sources}"
     )
 
-    target_compile_definitions(ai 
+    target_compile_definitions(ai
         PRIVATE -DPLUGIN_SRC)
 
     target_link_libraries(ai
         PRIVATE gameplay
     )
     if (NOT MSVC)
-        target_compile_options(ai 
+        target_compile_options(ai
             PRIVATE "-fPIC"
         )
     endif()

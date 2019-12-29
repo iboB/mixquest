@@ -1,5 +1,5 @@
 # MixQuest
-# Copyright (c) 2017-2018 Borislav Stanimirov
+# Copyright (c) 2017-2020 Borislav Stanimirov
 #
 # Distributed under the MIT Software License
 # See accompanying file LICENSE.txt or copy at
@@ -43,7 +43,117 @@ set_target_properties(lua PROPERTIES FOLDER ThirdParty)
 
 # exe
 set(sources)
-ucm_add_dirs(. TO sources RECURSIVE FILTER_POP 1)
+src_group("root" sources
+    Main.cpp
+    InGameState.h
+    Application_ImGui.cpp
+    ImplicitSingleton.h
+    TaskManager.cpp
+    TaskManager.h
+    Memory.h
+    LoadAllAssetsState.cpp
+    OpenGL.h
+    Application.cpp
+    Util.h
+    Application.h
+    MixQuest.pch.cpp
+    AppState.h
+    CharacterNames.cpp
+    Util.cpp
+    LoadAllAssetsState.h
+    Constants.h
+    MixQuest.pch.h
+    ExplicitSingleton.h
+    CharacterNames.h
+    InGameState.cpp
+)
+src_group("scripting" sources
+    scripting/ScriptManager.h
+    scripting/ScriptManager.cpp
+)
+src_group("control" sources
+    control/CharacterControl.cpp
+    control/CharacterControl.mix.h
+)
+src_group("map" sources
+    map/MapRenderingTmx.cpp
+    map/MapRendering.h
+    map/MapRendering.cpp
+)
+src_group("assets" sources
+    assets/GlobalAssets.cpp
+    assets/TexturizeColorMaterial.h
+    assets/LoadTMX.h
+    assets/GlobalAssets.h
+    assets/TexturizeMaterial.h
+    assets/LoadTMX.cpp
+    assets/TexturizeMaterial.cpp
+    assets/TexturizeColorMaterial.cpp
+)
+src_group("mixins" sources
+    mixins/SelectionMark.mix.h
+    mixins/SelectionMark.cpp
+    mixins/HealthBar.cpp
+    mixins/KeyboardControl.mix.h
+    mixins/HealthBar.mix.h
+    mixins/CharacterRendering.mix.h
+    mixins/CharacterRendering.cpp
+    mixins/KeyboardControl.cpp
+)
+src_group("messages" sources
+    messages/RenderingMessages.h
+    messages/RenderingMessages.cpp
+)
+src_group("input" sources
+    input/InputManager.h
+)
+src_group("plugins" sources
+    plugins/PluginManager.h
+    plugins/HotswapFSWatcher.cpp
+    plugins/HotswapFSWatcher.h
+    plugins/PluginManager.cpp
+)
+src_group("plugins~FileWatcher" sources
+    plugins/FileWatcher/FileWatcher.cpp
+    plugins/FileWatcher/FileWatcherImpl.h
+    plugins/FileWatcher/FileWatcherWin32.h
+    plugins/FileWatcher/FileWatcher.h
+    plugins/FileWatcher/FileWatcherLinux.cpp
+    plugins/FileWatcher/FileWatcherOSX.h
+    plugins/FileWatcher/FileWatcherOSX.cpp
+    plugins/FileWatcher/FileWatcherLinux.h
+    plugins/FileWatcher/FileWatcherWin32.cpp
+)
+src_group("rendering" sources
+    rendering/Texture.h
+    rendering/SpriteAnimation.h
+    rendering/Tileset.cpp
+    rendering/TextureManager.cpp
+    rendering/Sprite.h
+    rendering/TextureManager.h
+    rendering/Renderer.cpp
+    rendering/GPUProgram.cpp
+    rendering/Quad.h
+    rendering/Texture.cpp
+    rendering/Tileset.h
+    rendering/Shader.h
+    rendering/SpriteAnimation.cpp
+    rendering/Sprite.cpp
+    rendering/Renderer.h
+    rendering/Vertex.h
+    rendering/GPUProgram.h
+    rendering/ShaderPtr.h
+    rendering/GLSentries.h
+    rendering/GPUProgramPtr.h
+    rendering/ShaderType.h
+    rendering/Shader.cpp
+    rendering/Quad.cpp
+    rendering/TexturePtr.h
+)
+src_group("systems" sources
+    systems/RenderingSystem.h
+    systems/RenderingSystem.cpp
+)
 
 add_executable(mixquest
     "${sources}"

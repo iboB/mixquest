@@ -16,6 +16,3 @@
 [submodule "third_party/yama"]
 	path = third_party/yama
 	url = https://github.com/iboB/yama.git
-[submodule "third_party/ucm"]
-	path = third_party/ucm
-	url = https://github.com/onqtam/ucm.git
