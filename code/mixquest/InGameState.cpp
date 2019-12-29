@@ -297,7 +297,7 @@ void InGameState::update(uint32_t dt)
 
     if (showPluginsDialog)
     {
-        ImGui::Begin("Plugins", &showPluginsDialog, ImVec2(300, 200));
+        ImGui::Begin("Plugins", &showPluginsDialog);
 
         static int curItem = 0;
         auto& plugins = pm.plugins();
