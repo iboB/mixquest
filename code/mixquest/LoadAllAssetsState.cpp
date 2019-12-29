@@ -1,6 +1,6 @@
 //
 // MixQuest
-// Copyright (c) 2017 Borislav Stanimirov
+// Copyright (c) 2017-2020 Borislav Stanimirov
 //
 // Distributed under the MIT Software License
 // See accompanying file LICENSE.txt or copy at
@@ -51,7 +51,7 @@ bool LoadAllAssetsState::initialize()
         a.texturizeMaterial.init();
         return true;
     });
-    
+
     app.pushTask([this]() {
         Util::ReadFileToVector("assets/tex_color.vert", m_texturizeColorVertData);
         m_texturizeColorVertData.push_back(0);
