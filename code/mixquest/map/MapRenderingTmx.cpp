@@ -15,6 +15,7 @@
 #include "Memory.h"
 
 #include <array>
+#include <cstring>
 
 using namespace std;
 using namespace yama;

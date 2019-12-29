@@ -1,6 +1,6 @@
 #pragma once
 
-#include <dynamix/dynamix.hpp>
+#include <dynamix/core.hpp>
 
 #if !defined(SYMBOL_IMPORT)
 #   if defined(_MSC_VER)

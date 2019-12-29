@@ -33,6 +33,8 @@
 
 #include "rendering/GLSentries.h"
 
+#include <dynamix/mutation_rule.hpp>
+
 #include <imgui.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -51,7 +53,7 @@ public:
     using mixin_collection::has;
     using mixin_collection::remove;
 
-    virtual void apply_to(object_type_mutation& mutation) override
+    virtual void apply_to(object_type_mutation& mutation, const mixin_collection&) override
     {
         // find if the mutation is adding any of the bundled mixins
 
@@ -72,7 +74,7 @@ public:
             }
         }
 
-        DYNAMIX_ASSERT_MSG(adding == INVALID_MIXIN_ID || removing == INVALID_MIXIN_ID, "mutation breaking a bundle mixin rule");
+        I_DYNAMIX_ASSERT_MSG(adding == INVALID_MIXIN_ID || removing == INVALID_MIXIN_ID, "mutation breaking a bundle mixin rule");
 
         if (adding != INVALID_MIXIN_ID)
         {
